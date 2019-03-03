@@ -1,0 +1,48 @@
+{
+  "name": "@brainnit/adonisjs-feud",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [
+    "adonis",
+    "adonis-framework",
+    "adonis-feud",
+    "multi-tenancy",
+    "tenant"
+  ],
+  "main": "index.js",
+  "repository": "git@github.com:brainnit/adonisjs-feud.git",
+  "scripts": {
+    "test": "jest --coverage --runInBand",
+    "lint": "standard"
+  },
+  "author": "João Pedro Barros <joao@joaopedrobarros.com.br>",
+  "license": "MIT",
+  "standard": {
+    "globals": [
+      "use"
+    ],
+    "env": {
+      "node": true,
+      "jest": true,
+      "es6": true
+    }
+  },
+  "dependencies": {
+    "@adonisjs/generic-exceptions": "^3.0.1",
+    "debug": "^4.1.1",
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "@adonisjs/ace": "^5.0.8",
+    "@adonisjs/fold": "^4.0.9",
+    "@adonisjs/lucid": "^6.1.3",
+    "@adonisjs/sink": "^1.0.17",
+    "dotenv": "^6.2.0",
+    "jest": "^24.1.0",
+    "sqlite3": "^4.0.6",
+    "standard": "^12.0.1"
+  },
+  "peerDependencies": {
+    "@adonisjs/framework": "^5.0.12"
+  }
+}
