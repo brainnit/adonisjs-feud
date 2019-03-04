@@ -53,6 +53,59 @@ class FeudProvider extends ServiceProvider {
     })
     this.app.alias('Adonis/Traits/TenantAware', 'TenantAware')
   }
+
+  /**
+   * Extends the Validator adding rules scoped to Feud.
+   *
+   * @method _registerValidatorRules
+   *
+   * @return {void}
+   *
+   * @private
+   */
+  _registerValidatorRules () {
+    try {
+      const { extend } = this.app.use('Adonis/Addons/Validator')
+      const Feud = this.app.use('Feud')
+      const Database = this.app.use('Adonis/Src/Database')
+      const validatorRules = new (require('../src/ValidatorRules'))(
+        Feud,
+        Database
+      )
+
+      /**
+       * Adds `feudUnique` rule.
+       */
+      extend(
+        'feudUnique',
+        validatorRules.unique.bind(validatorRules),
+        '{{field}} has already been taken by someone else'
+      )
+
+      /**
+       * Adds `feudExists` rule.
+       */
+      extend(
+        'feudExists',
+        validatorRules.exists.bind(validatorRules),
+        '{{field}} has not been found'
+      )
+    } catch (error) {
+      // fails silently
+    }
+  }
+
+  /**
+   * Attach context getter when all providers have
+   * been registered
+   *
+   * @method boot
+   *
+   * @return {void}
+   */
+  boot () {
+    this._registerValidatorRules()
+  }
 }
 
 module.exports = FeudProvider

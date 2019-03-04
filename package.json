@@ -28,7 +28,8 @@
     }
   },
   "dependencies": {
-    "@adonisjs/generic-exceptions": "^3.0.1"
+    "@adonisjs/generic-exceptions": "^3.0.1",
+    "@adonisjs/validator": "^5.0.6"
   },
   "devDependencies": {
     "@adonisjs/ace": "^5.0.8",
