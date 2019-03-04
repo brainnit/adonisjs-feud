@@ -28,9 +28,7 @@
     }
   },
   "dependencies": {
-    "@adonisjs/generic-exceptions": "^3.0.1",
-    "debug": "^4.1.1",
-    "lodash": "^4.17.11"
+    "@adonisjs/generic-exceptions": "^3.0.1"
   },
   "devDependencies": {
     "@adonisjs/ace": "^5.0.8",
