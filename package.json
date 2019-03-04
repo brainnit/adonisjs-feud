@@ -37,6 +37,7 @@
     "@adonisjs/fold": "^4.0.9",
     "@adonisjs/lucid": "^6.1.3",
     "@adonisjs/sink": "^1.0.17",
+    "adonis-lucid-polymorphic": "^1.0.1",
     "dotenv": "^6.2.0",
     "jest": "^24.1.0",
     "sqlite3": "^4.0.6",

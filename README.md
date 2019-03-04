@@ -1,6 +1,6 @@
 # AdonisJs Feud
 
-Adonis Feud provides a driver based solution for searching your Lucid models.
+Adonis Feud allows you to serve multiple tenants within the same Adonis application while keeping tenant specific data logically separated for fully independent multi-domain/SaaS setups.
 
 ## Instalation
 
@@ -35,7 +35,7 @@ const Model = use('Model');
 
 class User extends Model {
   static get traits () {
-    return ['@provider:Feud']
+    return ['@provider:TenantAware']
   }
 }
 
