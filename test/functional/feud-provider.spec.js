@@ -34,7 +34,12 @@ describe('FeudProvider', () => {
     expect(ioc.use('Feud')).toBeInstanceOf(Feud)
   })
 
-  it('TenantAware should be registered just fine', () => {
+  it('TenantAware midleware should be registered just fine', () => {
+    const TenantAware = require('../../src/Middleware/TenantAware')
+    expect(ioc.use('Adonis/Middleware/TenantAware')).toBeInstanceOf(TenantAware)
+  })
+
+  it('TenantAware trait should be registered just fine', () => {
     const TenantAware = require('../../src/TenantAware')
     expect(ioc.use('Adonis/Traits/TenantAware')).toBeInstanceOf(TenantAware)
     expect(ioc.use('TenantAware')).toBeInstanceOf(TenantAware)
