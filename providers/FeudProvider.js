@@ -12,6 +12,7 @@ class FeudProvider extends ServiceProvider {
    */
   register () {
     this._registerFeud()
+    this._registerTenantAwareMiddleware()
     this._registerTenantAwareTrait()
   }
 
@@ -32,6 +33,21 @@ class FeudProvider extends ServiceProvider {
       return new Feud(Config)
     })
     this.app.alias('Adonis/Addons/Feud', 'Feud')
+  }
+
+  /**
+   * Register auth middleware under `Adonis/Middleware/TenantAware` namespace.
+   *
+   * @method _registerTenantAwareMiddleware
+   *
+   * @return {void}
+   *
+   * @private
+   */
+  _registerTenantAwareMiddleware () {
+    this.app.bind('Adonis/Middleware/TenantAware', (app) => {
+      return new (require('../src/Middleware/TenantAware'))()
+    })
   }
 
   /**
